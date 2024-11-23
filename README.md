@@ -26,7 +26,7 @@ This API enables basic CRUD operations for managing student data, including auth
 
 1. **Clone the repository**:
     ```bash
-    git clone https://github.com/yourusername/student-crud-api.git
+    git clone https://github.com/vanjararamdhan/student-crud-api.git
     cd student-crud-api
     ```
 
