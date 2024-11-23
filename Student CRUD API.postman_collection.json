@@ -1,0 +1,190 @@
+{
+	"info": {
+		"_postman_id": "60a4c353-e198-4df1-9247-5aa540a79571",
+		"name": "Student CRUD API",
+		"description": "Collection for Student CRUD API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "39809188"
+	},
+	"item": [
+		{
+			"name": "Register Student",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Harshw D\",\n    \"email\": \"harshcale.randire@softedge.com\",\n    \"phone\": \"9876543210\",\n    \"address\": \"123 Main St, City\",\n    \"dob\": \"2000-01-01\",\n    \"subjects\": [\n        { \"subjectName\": \"Maths\", \"marks\": 90 },\n        { \"subjectName\": \"Physics\", \"marks\": 85 }\n    ],\n    \"password\": \"Strong@123\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/students/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"students",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login Student",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"john.doe@google.com\",\n    \"password\": \"Strong@123\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/students/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"students",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Students",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3NDE2MGMzM2MxNGE1YjE4NGE5ZDMyNSIsImlhdCI6MTczMjMzODg5MywiZXhwIjoxNzMyMzM5NzkzfQ.N-VkaSwkKJbljs1GV82TAI6jsf5K71tT1g7u4SGhyrk",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer <accessToken>"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:5000/api/students?page=1&limit=5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"students"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "limit",
+							"value": "5"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Profile",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3NDE2MGMzM2MxNGE1YjE4NGE5ZDMyNSIsImlhdCI6MTczMjM0MTM1MCwiZXhwIjoxNzMyMzQyMjUwfQ.-qYJ0mEhnsDcD5UXbcbnnMqPCbxhj3FoE_QsFzMJeQ4",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer <accessToken>"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Johnathan Doe\",\n    \"phone\": \"9876543210\",\n    \"address\": \"456 New St, New City\"\n    // \"password\": \"Strong@123#\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/students/profile",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"students",
+						"profile"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Refresh Access Token",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"refreshToken\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3NDE2MGMzM2MxNGE1YjE4NGE5ZDMyNSIsImlhdCI6MTczMjMzNzg4MiwiZXhwIjoxNzMyOTQyNjgyfQ.JlrWX7E_rpWb1xPhKkZoJTRlgjOBBOIbNdpxq9T4R9k\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/students/refresh-token",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"students",
+						"refresh-token"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
